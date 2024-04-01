@@ -1,5 +1,5 @@
-\documentclass[rnd]{mas_proposal}
-% \documentclass[thesis]{mas_proposal}
+%\documentclass[rnd]{mas_proposal}
+ \documentclass[thesis]{mas_proposal}
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
@@ -7,10 +7,10 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 
-\title{Project Proposal Title}
-\author{First Name Last Name}
+\title{Exploring Retrieval Augmented Generation Systems For Automatic Short Answer Grading and Assisted Learning}
+\author{Elanton Fernandes}
 \supervisors{First Supervisor\\Second Supervisor\\Third Supervisor}
-\date{Month 20XX}
+\date{April 2024}
 
 % \thirdpartylogo{path/to/your/image}
 
@@ -22,17 +22,23 @@
 
 \section{Introduction}
 
-\subsection{Topic of This R\&D Project}
+\subsection{Topic of This Thesis Project}
 \begin{itemize}
-    \item Provide reasonably detailed description of what you intent to do in your R\&D project.
-    \item You may also discuss the challenges that you have to address.
-    \item Reflect on the profile of the reader and PLEAAAASE, tell a story here and refrain from bombarding the readers with details which they may not be able to appreciate.
+    \item In order to understand what we wish to do in this thesis we would like to understand the core requirements of what we expect from automated short answer grading and large language models and how a system called as a Retrieval augmented generation comes into the picture.
+    \item Any academic institute that conducts examinations would find it beneficial to automate the grading process of exams for each of its students. Now, the underlying problem with this is that, students expect not just a grade but also an explanation of why they received a particular grade for the questions they answered. This is mostly the case when points are deducted from a students answer and they do not receive the full grade.
+    \item Large Language Models (LLM) such as GPT-4,  LLama-2, Grok, etc have shown the immense capabilities in the areas of Question Answering, text summarization, Chat, etc. Looking specifically at the task of Question Answers, it is observed that these models can tend to give false information with claims that sound very convincing and can make the user doubt their own knowledge. This phenomena where the Large Language Model generates a response that is factually false but has convincing statements that make the claims sound true is called 'Hallucination' and a model that does that is said to 'Hallucinate'.
+    \item Assume the following example question: 'What are different layers in a artificial neural network?'. The correct response to this is: 'A artificial neural network consists of 3 layers, namely, input layer, hidden layers, and output layer'. Lets also make the assumption that in an examination a student gave the following response: 'Neural network comprises of: input layer, convolution layer, and output layer'
+    \item Now under ideal circumstances, if we use a Large Language Model and give it the question and student answer, we would expect that the LLM grades this response with two points (Assuming it is a 3 point question) and gives an explanation stating that the student lost one point because the basic model of a neural network does not consist of a convolution layer but a hidden layer.
+    \item However, given the possibility that a model can hallucinate, it can also grade the student answer with full point or make a claim that 'the student answer is comletely wrong because a neural network comprises of a network of neurons connected by synapses'
+    \item This is where Retrieval Augmented Generation (RAG) will come into the picture. RAG in simple terms is a way in which a user provides documents that it expects the LLM to use when asked a question. So when a question is asked to the LLM, it will retrieve an answer from these documents and answer your question as a complete sentence (and not just copy paste of the reference document).
+    \item So in this project we wish to explore the different RAG based systems, such that we can do the task of automated short answer grading for not fully correct answers in the following manner: "The answer you have provided loses X points because the 'XYZ' statement made by you is wrong and the correct answer is in the reference document 'ABC'. "
 \end{itemize}
 
-\subsection{Relevance of This R\&D Project}
+\subsection{Relevance of This Thesis Project}
 \begin{itemize}
-    \item Who will benefit from the results of this R\&D project?
-    \item What are the benefits? Quantify the benefits with concrete numbers.
+    \item The results of this thesis will benefit any institute by helping them in grading student examination. This ultimately will save them time and resources that can be used somewhere else effectively.
+    \item The results can also benefit any organization that wishes to use a RAG based system to perform QA task on proprietary/confidential documents. This again has the benefit of time and resources saved.
+    \item A RAG based system also allows one to not have to fine tune a model on that data, thus saving compute resources and cut down on cost.
  \end{itemize}
 
 \section{Related Work}
